@@ -265,7 +265,7 @@ describe('Week 07 capstone: Recipe API', () => {
       },
     }).then((response) => {
       expect(response.status).to.eq(200);
-      expect(response.body.data).to.be.undefined;
+      expect(response.body.data).to.be.null;
       expect(response.body.errors).to.have.length.greaterThan(0);
       expect(response.body.errors?.[0].message).to.include('validation failed');
     });
@@ -305,7 +305,7 @@ describe('Week 07 capstone: Recipe API', () => {
         },
       }).then((secondResponse) => {
         expect(secondResponse.status).to.eq(200);
-        expect(secondResponse.body.data).to.be.undefined;
+        expect(secondResponse.body.data).to.be.null;
         expect(secondResponse.body.errors).to.have.length.greaterThan(0);
         expect(secondResponse.body.errors?.[0].message).to.match(/duplicate key|E11000/i);
       });

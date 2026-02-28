@@ -37,5 +37,6 @@ export const typeDefs = `#graphql
   type Mutation {
     createRecipe(input: CreateRecipeInput!): Recipe!
     updateRecipe(id: ID!, input: UpdateRecipeInput!): Recipe!
+    deleteRecipe(id: ID!): Recipe!
   }
 `;

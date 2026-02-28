@@ -5,26 +5,38 @@ const recipeSchema = new Schema(
     title: {
       type: String,
       trim: true,
+      required: true,
+      minlength: 3,
     },
     cuisine: {
       type: String,
       trim: true,
+      required: true,
     },
     prepTimeMinutes: {
       type: Number,
+      required: true,
+      min: 1,
     },
     difficulty: {
       type: String,
       trim: true,
+      required: true,
     },
     slug: {
       type: String,
       trim: true,
       lowercase: true,
+      required: true,
+      unique: true,
     },
     ingredients: {
       type: [String],
-      default: [],
+      required: true,
+      validate: {
+        validator: (arr: string[]) => arr.length > 0,
+        message: 'Ingredients must not be empty',
+      }
     },
   },
   {
